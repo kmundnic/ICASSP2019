@@ -14,6 +14,11 @@ Pkg.add("PyPlot")
 Pkg.add("DataFrames")
 ```
 
+## Running the experiments
+### Enabling multithreading
+TripletEmbeddings.jl implements tSTE using threads to compute the gradient. To allow Julia to use more than one thread, run in the terminal `export JULIA_NUM_THREADS=8` before starting the Julia REPL.
+
+### Experiments
 To run, open a Julia REPL in the same directory and run:
 
 ```julia
