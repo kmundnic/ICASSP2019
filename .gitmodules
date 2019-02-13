@@ -1,0 +1,3 @@
+[submodule "TripletEmbeddings.jl"]
+	path = TripletEmbeddings.jl
+	url = https://github.com/kmundnic/TripletEmbeddings.jl.git
