@@ -8,7 +8,9 @@ Pkg.add("CSV")
 Pkg.add("SCS")
 Pkg.add("JuMP")
 Pkg.add("JSON")
-Pkg.add("Plots"); pyplot() # Needs PyCall and and PyPlot
+Pkg.add("Plots") # Will need a backend
+Pkg.add("PyCall")
+Pkg.add("PyPlot")
 Pkg.add("DataFrames")
 ```
 
