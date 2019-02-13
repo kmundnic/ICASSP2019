@@ -1,5 +1,6 @@
 include("algorithms.jl")
 
+using CSV
 using JSON
 
 srand(1)
@@ -23,10 +24,9 @@ limits = [193 136] # RSSI min and max values
 data = load_data(joinpath(path, unit, file), limits)
 owls = sort(collect(unique(data[:receiverDirectory])))
 
-# We read the positions and convert them from inches to meters
-X = 0.0254 * matopen("positions/floor6-north-positions.mat") do io
-	read(io, "positions")
-end
+# We read the positions and convert them to an array
+# The values are in meters
+X = load_owl_positions("positions/floor6-north-positions.csv")
 
 g = g1 # We use this clipping function defined in algorithms.jl
 number_of_receivers = Dict{String, Array{Int64,1}}()

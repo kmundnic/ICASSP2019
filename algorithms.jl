@@ -1,4 +1,3 @@
-using MAT
 using CSV
 using SCS
 using JuMP
@@ -43,12 +42,7 @@ function load_data(file::String, limits::Array{Int64,2})
 end
 
 function load_owl_positions(file::String)
-	# We multiply by 0.0254 to convert from inches to meters
-	X = 0.0254 * matopen(file) do io
-		read(io, "positions")
-	end
-
-	return X
+	return convert(Array{Float64,2}, CSV.read(file))
 end
 
 function label(X::Array{Float64,2}, rssis::Dict{Int64,Int64})::Array{Int64,2}
